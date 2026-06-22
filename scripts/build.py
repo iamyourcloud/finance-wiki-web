@@ -134,6 +134,7 @@ def page_shell(title, sidebar, main_html):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%E2%97%86%3C/text%3E%3C/svg%3E">
 <title>{html.escape(title)} · {html.escape(SITE_TITLE)}</title>
 <link rel="stylesheet" href="styles.css">
 </head>

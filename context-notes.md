@@ -34,6 +34,14 @@
 - 개인 노트라 전 페이지 `<meta robots noindex,nofollow>` + `robots.txt(Disallow /)` 기본 적용. GitHub Pages용 `.nojekyll` 포함.
 - 로컬 서버가 dist/ 폴더를 잠가 rmtree 실패 → 재빌드 전 8765/8766 리스너 kill 필요(함정).
 
-### 다음 세션 진입점
-- 배포 도구 미인증 상태(gh·vercel 로그인 안 됨). 사용자 1회 로그인 필요.
-- 사용자에게 배포 경로(GitHub Pages / Vercel / Netlify Drop / 보류) 선택 요청함 → 선택에 따라 단계 안내.
+### 배포 완료(2026-06-22)
+- GitHub 계정 iamyourcloud로 로그인. 공개 repo `finance-wiki-web` 생성·push.
+- GitHub Pages: main 브랜치 `/docs` 소스로 활성화. 첫 빌드 ~1분 후 200.
+- live: https://iamyourcloud.github.io/finance-wiki-web/ — 브라우저 검증 완료(카드 설명·CSS·검색 정상).
+- 함정 기록: ① 로컬 http.server가 dist/docs 폴더 잠금 → 재빌드 전 리스너 kill. ② Git Bash가 `gh api /repos/...`의 앞 슬래시를 윈도우 경로로 변환 → `MSYS_NO_PATHCONV=1` + 앞 슬래시 제거.
+- favicon 404 제거: 인라인 SVG data-URI 아이콘 추가.
+
+### 재배포(갱신) 흐름
+1. Obsidian에서 Finance/Wiki 수정.
+2. `python scripts/build.py` (docs/ 재생성).
+3. `git add -A && git commit -m "..." && git push` → Pages 자동 반영.
